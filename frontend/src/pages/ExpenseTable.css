@@ -1,0 +1,43 @@
+.expense-list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 200px;
+}
+
+.expense-item {
+    display: table-row;
+    border-bottom: 1px solid #ddd;
+}
+
+.expense-item:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.expense-item:last-child {
+    border-bottom: none;
+}
+
+.expense-item > div,
+.expense-item > button {
+    display: table-cell;
+    padding: 10px;
+    text-align: left;
+}
+
+.expense-item > .expense-amount {
+    text-align: right;
+}
+
+.delete-button {
+    background-color: #c0392b;
+    padding-left:50px;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #a93226;
+}

@@ -36,7 +36,7 @@ function Login() {
                 handleSuccess(message);
                 localStorage.setItem("token", jwtToken);
                 localStorage.setItem("loggedInUser", name);
-                localStorage.setItem("role", role);
+                localStorage.setItem("role", role||"user");
 
                 setUser({ name, role, token: jwtToken }); // Set user in context
                 console.log("role", role)

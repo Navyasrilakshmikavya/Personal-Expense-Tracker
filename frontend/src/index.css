@@ -3,14 +3,14 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  background-color: rgb(247,236,245);
   color: #333;
 }
 
 /* Button Styling */
 button, .btn {
   background: #ff416c;
-  color: white;
+  color: white; 
   padding: 12px 20px;
   border: none;
   border-radius: 6px;
@@ -29,11 +29,6 @@ button:hover, .btn:hover {
   text-align: center;
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 20px;
-}
 
 /* Footer */
 footer {

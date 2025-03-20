@@ -72,14 +72,14 @@ const Home = () => {
       cursor: 'pointer'
     },
     footer: {
-      backgroundColor: '#2563eb',
-      color: 'white',
+      backgroundColor: ' rgb(51, 209, 241)',
+      color:'black',
       textAlign: 'center',
       padding: '20px',
       marginTop: '50px'
     },
     footerLink: {
-      color: 'white',
+      color: 'black',
       textDecoration: 'underline'
     }
   };

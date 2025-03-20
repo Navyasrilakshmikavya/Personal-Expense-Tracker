@@ -50,7 +50,7 @@ function Expenses() {
 
     const fetchExpenses = useCallback(async () => {
         try {
-            const url =  `${APIUrl}/expenses`;
+            const url = `${APIUrl}/expenses`;
             const headers = {
                 headers: {
                     'Authorization': localStorage.getItem('token')
@@ -96,7 +96,7 @@ function Expenses() {
 
     useEffect(() => {
         fetchExpenses();
-    }, [fetchExpenses]); 
+    }, [fetchExpenses]);
 
     // 🎨 Colors for Pie Chart Segments
     const COLORS = ['#76B7B2', '#4E79A7', '#F28E2B', '#AF7AA1', '#FF9DA7'];
@@ -109,29 +109,61 @@ function Expenses() {
     }));
 
     return (
-        <div>
-            <div className='user-section' style={{ textAlign: 'center',paddingTop:"100px",marginBottom: '20px' }}>
-                <h1>Welcome {loggedInUser}</h1>
+        <div style={{ padding: '20px' }}>
+            <div className='user-section' style={{ textAlign: 'center', paddingTop: '60px', marginBottom: '20px' }}>
+                <h1>Welcome, {loggedInUser}</h1>
             </div>
 
-            {/* Income Entry */}
-            <div>
-                <label htmlFor="income">Enter Your Income:</label>
+            {/* Income Input Section */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px' }}>
+                <label htmlFor="income" style={{ fontSize: "16px", fontWeight: "bold", marginBottom: "8px" }}>
+                    Enter Your Income:
+                </label>
                 <input
                     type="number"
                     id="income"
                     placeholder="Enter your total income..."
                     value={incomeAmt}
                     onChange={(e) => setIncomeAmt(e.target.value)}
+                    style={{
+                        width: "50%",
+                        padding: "10px",
+                        border: "1px solid #ccc",
+                        borderRadius: "6px",
+                        fontSize: "16px",
+                        outline: "none",
+                        textAlign: "center"
+                    }}
                 />
             </div>
 
+            {/* Submit Button */}
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <button
+                    style={{
+                        backgroundColor: "#3498db",
+                        color: "white",
+                        border: "none",
+                        fontSize: "16px",
+                        padding: "10px 20px",
+                        borderRadius: "6px",
+                        cursor: "pointer",
+                        transition: "background-color 0.3s ease"
+                    }}
+                    onMouseOver={(e) => e.target.style.backgroundColor = "#2980b9"}
+                    onMouseOut={(e) => e.target.style.backgroundColor = "#3498db"}
+                >
+                    Submit
+                </button>
+            </div>
+
+            {/* Expense Details, Form, and Table */}
             <ExpenseDetails incomeAmt={incomeAmt} expenseAmt={expenseAmt} />
             <ExpenseForm addTransaction={addTransaction} />
             <ExpenseTable expenses={expenses} deleteExpens={deleteExpens} />
 
             {/* 🎯 Pie Chart for Expense Categories */}
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>
                 <PieChart width={400} height={400}>
                     <Pie
                         data={expenseData}

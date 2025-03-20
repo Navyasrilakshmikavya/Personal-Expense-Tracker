@@ -1,23 +1,38 @@
-import React from 'react';
+import React from 'react'
+import './ExpenseTable.css'
 
 function ExpenseDetails({ incomeAmt, expenseAmt }) {
     const balance = Math.max(0, incomeAmt - expenseAmt);
 
     return (
-        <div style={{ padding: '20px', background: '#ffcccc', borderRadius: '10px', width: '50%', margin: 'auto' }}>
-            <div style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '15px', textAlign: 'center' }}>
+        <div style={{ margin: "20px auto", maxWidth: "90%", textAlign: "center" }}>
+            <div style={{ fontSize: "20px", fontWeight: "bold", marginTop: "10px" }}>
                 Your Balance is ₹ {balance}
             </div>
-
+            
             {/* Show Income & Expense amount */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '18px', fontWeight: 'bold', padding: '10px' }}>
-                <div style={{ color: '#27ae60', textAlign: 'left' }}>
-                    Income:
-                    <div style={{ fontWeight: 'normal', fontSize: '16px' }}>₹{incomeAmt || 0}</div>
+            <div style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                flexWrap: "wrap",
+                background: "#f8f2f7",
+                padding: "15px",
+                borderRadius: "8px",
+                marginTop: "10px",
+                fontSize: "18px",
+                width: "100%",
+                maxWidth: "350px",
+                marginLeft: "auto",
+                marginRight: "auto"
+            }}>
+                <div style={{ flex: "1", textAlign: "center", minWidth: "120px" }}>
+                    Income <br />
+                    <span style={{ color: "green", fontWeight: "bold" }}>₹{incomeAmt}</span>
                 </div>
-                <div style={{ color: '#c0392b', textAlign: 'right' }}>
-                    Expense:
-                    <div style={{ fontWeight: 'normal', fontSize: '16px' }}>₹{expenseAmt || 0}</div>
+                <div style={{ flex: "1", textAlign: "center", minWidth: "120px" }}>
+                    Expense <br />
+                    <span style={{ color: "red", fontWeight: "bold" }}>₹{expenseAmt}</span>
                 </div>
             </div>
         </div>

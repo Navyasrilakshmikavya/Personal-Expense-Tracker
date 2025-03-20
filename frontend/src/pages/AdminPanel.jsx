@@ -12,7 +12,7 @@ const AdminPanel = () => {
       const authHeaders = {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       };
-      const res = await axios.get("https://personal-expense-tracker-4ud2.onrender.com/api/admin/users", authHeaders);
+      const res = await axios.get("https://personal-expense-tracker-jnqb.onrender.com/api/admin/users", authHeaders);
       setUsers(res.data);
     } catch (err) {
       console.error("Error fetching users:", err);
@@ -24,7 +24,7 @@ const AdminPanel = () => {
       const authHeaders = {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       };
-      const res = await axios.get("https://personal-expense-tracker-4ud2.onrender.com/api/admin/expenses", authHeaders);
+      const res = await axios.get("https://personal-expense-tracker-jnqb.onrender.com/api/admin/expenses", authHeaders);
       setExpenses(res.data);
     } catch (err) {
       console.error("Error fetching expenses:", err);
@@ -43,7 +43,7 @@ const AdminPanel = () => {
       const authHeaders = {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       };
-      await axios.delete(`https://personal-expense-tracker-4ud2.onrender.com/api/admin/users/${id}`, authHeaders);
+      await axios.delete(`https://personal-expense-tracker-jnqb.onrender.com/api/admin/users/${id}`, authHeaders);
       setUsers(users.filter(user => user._id !== id));
     } catch (err) {
       console.error("Error deleting user:", err);
@@ -55,7 +55,7 @@ const AdminPanel = () => {
       const authHeaders = {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       };
-      await axios.delete(`https://personal-expense-tracker-4ud2.onrender.com/api/admin/expenses/${id}`, authHeaders);
+      await axios.delete(`https://personal-expense-tracker-jnqb.onrender.com/api/admin/expenses/${id}`, authHeaders);
       setExpenses(expenses.filter(expense => expense._id !== id));
     } catch (err) {
       console.error("Error deleting expense:", err);

@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { PieChart, Pie, Tooltip, Cell, ResponsiveContainer } from 'recharts';
 
 // --- UTILITY FUNCTIONS ---
-const APIUrl = 'http://localhost:8080';
+const APIUrl = 'https://personal-expense-tracker-jnqb.onrender.com';
 
 const handleError = (err) => {
     console.error(err);

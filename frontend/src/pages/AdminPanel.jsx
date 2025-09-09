@@ -55,8 +55,8 @@ function AdminPanel() {
         const config = { headers: { Authorization: `Bearer ${token}` } };
         try {
             const [usersResponse, expensesResponse] = await Promise.all([
-                axios.get('http://localhost:8080/api/admin/users', config),
-                axios.get('http://localhost:8080/api/admin/expenses', config)
+                axios.get('https://personal-expense-tracker-jnqb.onrender.com/api/admin/users', config),
+                axios.get('https://personal-expense-tracker-jnqb.onrender.com/api/admin/expenses', config)
             ]);
             setUsers(usersResponse.data.data || []);
             setExpenses(expensesResponse.data.data || []);
@@ -76,7 +76,7 @@ function AdminPanel() {
         if (!window.confirm("Are you sure you want to delete this user and all their data?")) return;
         try {
             const token = localStorage.getItem("token");
-            await axios.delete(`http://localhost:8080/api/admin/users/${userId}`, { headers: { Authorization: `Bearer ${token}` } });
+            await axios.delete(`https://personal-expense-tracker-jnqb.onrender.com/api/admin/users/${userId}`, { headers: { Authorization: `Bearer ${token}` } });
             fetchData();
         } catch (err) {
             setError(err.response?.data?.message || "Failed to delete user.");
@@ -87,7 +87,7 @@ function AdminPanel() {
         if (!window.confirm("Are you sure you want to delete this expense?")) return;
         try {
             const token = localStorage.getItem("token");
-            await axios.delete(`http://localhost:8080/api/admin/users/${userId}/expenses/${expenseId}`, { headers: { Authorization: `Bearer ${token}` } });
+            await axios.delete(`https://personal-expense-tracker-jnqb.onrender.com/api/admin/users/${userId}/expenses/${expenseId}`, { headers: { Authorization: `Bearer ${token}` } });
             fetchData();
         } catch (err) {
             setError(err.response?.data?.message || "Failed to delete expense.");

@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
             const token = localStorage.getItem("token");
             if (token) {
                 try {
-                    const res = await axios.get("http://localhost:8080/api/auth/user", {
+                    const res = await axios.get("https://personal-expense-tracker-jnqb.onrender.com/api/auth/user", {
                         headers: { Authorization: `Bearer ${token}` }
                     });
                     setUser(res.data);

@@ -27,16 +27,20 @@ router.post("/set-income", ensureAuthenticated, async (req, res) => {
     }
 });
 
-// ✅ Get User Income
+// ✅ Get User Income (Corrected)
 router.get("/income", ensureAuthenticated, async (req, res) => {
-    try {
-        const user = await User.findById(req.user.id).select("income");
-        if (!user) return res.status(404).json({ message: "User not found" });
+    try {
+        const user = await User.findById(req.user.id).select("income");
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not found" });
+        }
 
-        res.json({ income: user.income || 0 }); // 🔹 Ensure a default value is returned
-    } catch (error) {
-        res.status(500).json({ message: "Server error", error });
-    }
+        // ✅ FIXED: Added success: true to the response
+        res.status(200).json({ success: true, income: user.income || 0 });
+
+    } catch (error) {
+        res.status(500).json({ success: false, message: "Server error", error });
+    }
 });
 
 // ✅ Update Income

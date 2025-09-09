@@ -27,7 +27,8 @@ function Signup() {
         }
 
         try {
-            const url = `${APIUrl}/auth/signup`;
+            const url = `${APIUrl}/api/auth/signup`;
+            
             console.log("Sending request to:", url); // ✅ Debugging API URL
 
             const response = await fetch(url, {

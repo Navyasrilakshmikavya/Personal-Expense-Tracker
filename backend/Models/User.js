@@ -20,10 +20,6 @@ const UserSchema = new Schema({
         enum: ["user", "admin"],
         default: "user"
     },
-    income: {  
-        type: Number,
-        default: 0, // 🔹 Ensure default value is set
-    },
     expenses: [
         {
             text: {
@@ -39,7 +35,12 @@ const UserSchema = new Schema({
                 default: Date.now
             }
         }
-    ]
+    ],
+    income: {  
+        type: Number,
+        default: 0, // 🔹 Ensure default value is set
+    }
+
 });
 
 const UserModel = mongoose.model('users', UserSchema);
